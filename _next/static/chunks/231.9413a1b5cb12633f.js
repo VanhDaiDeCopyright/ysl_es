@@ -1,0 +1,570 @@
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [231], {
+        90231: function(e, n, t) {
+            t.r(n), t.d(n, {
+                Header: function() {
+                    return Header
+                }
+            });
+            var i = t(85893),
+                a = t(67294),
+                r = t(54483),
+                l = t.n(r),
+                o = t(593),
+                c = t(33796),
+                s = t(21488),
+                u = t(99038),
+                d = t(80885),
+                p = t(82729),
+                m = t(14141),
+                v = t(51742);
+
+            function _templateObject() {
+                let e = (0, p._)(["\n  width: 100%;\n  z-index: ", ";\n  position: fixed;\n  top: ", ";\n  transition: opacity 0.35s var(--ease-fade);\n\n  ", "\n\n  ", "\n"]);
+                return _templateObject = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject1() {
+                let e = (0, p._)(["\n  display: flex;\n  justify-content: space-between;\n  align-content: center;\n  align-items: center;\n  height: ", ";\n\n  // background bar\n  &::before {\n    content: '';\n    display: block;\n    position: absolute;\n    z-index: 0;\n    top: 0;\n    width: 100%;\n    height: ", ";\n    background: ", ";\n    backdrop-filter: blur(10px);\n    transition: opacity 0.3s var(--ease-fade);\n  }\n\n  /* Background with background color and blur */\n  ", "\n"]);
+                return _templateObject1 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject2() {
+                let e = (0, p._)(["\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 1;\n  opacity: 1;\n  transition: opacity 0.35s var(--ease-fade);\n  visibility: visible;\n\n  a {\n    ", "\n  }\n\n  ", "\n"]);
+                return _templateObject2 = function() {
+                    return e
+                }, e
+            }
+            let h = m.ZP.header.withConfig({
+                    componentId: "sc-c4f9ebe0-0"
+                })(_templateObject(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return n.zIndex.header
+                }, e => {
+                    let {
+                        navOpen: n
+                    } = e;
+                    return n ? "0" : "var(--infoBannerHeight)"
+                }, e => {
+                    let n, {
+                        light: t,
+                        transparent: i,
+                        navOpen: a
+                    } = e;
+                    return n = t && i && !a ? (0, v.xl)("inverse") : (0, v.xl)("primary"), "color: ".concat(n, ";")
+                }, e => e.hidden ? "\n          & {\n            transition: visibility 0s 0.351s, opacity 0.35s var(--ease-fade);\n            opacity: 0;\n            visibility: hidden;\n          }\n        " : ""),
+                f = m.ZP.div.withConfig({
+                    componentId: "sc-c4f9ebe0-1"
+                })(_templateObject1(), (0, v.OF)("header"), (0, v.OF)("header"), (0, v.qz)("blur"), e => e.transparent ? "\n          &::before {\n            opacity: 0;\n          }\n        " : "\n          &::before {\n            opacity: 1;\n          }\n        "),
+                g = m.ZP.div.withConfig({
+                    componentId: "sc-c4f9ebe0-2"
+                })(_templateObject2(), (0, v.bP)(), e => e.hide ? "\n          transition: visibility 0s 0.351s, opacity 0.35s var(--ease-fade);\n          opacity: 0;\n          visibility: hidden;\n        " : "");
+            var b = t(11163),
+                y = t(96824);
+
+            function NavigationPrimary_styles_templateObject() {
+                let e = (0, p._)(["\n  display: flex;\n  flex-direction: row;\n  z-index: 1;\n"]);
+                return NavigationPrimary_styles_templateObject = function() {
+                    return e
+                }, e
+            }
+
+            function NavigationPrimary_styles_templateObject1() {
+                let e = (0, p._)(["\n  ", ";\n  padding: 0 ", ";\n  display: flex;\n  justify-content: center;\n  align-items: center;\n"]);
+                return NavigationPrimary_styles_templateObject1 = function() {
+                    return e
+                }, e
+            }
+            let j = m.ZP.nav.withConfig({
+                    componentId: "sc-6211780f-0"
+                })(NavigationPrimary_styles_templateObject()),
+                _ = m.ZP.ul.withConfig({
+                    componentId: "sc-6211780f-1"
+                })(e => {
+                    let {
+                        displayMobile: n,
+                        theme: t
+                    } = e;
+                    return "\n  margin: 0 0 0 calc(var(--outer-gutter) - ".concat((0, v.kF)(12), ");\n  display: ").concat(n ? "flex" : "none", ";\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n\n  @media ").concat((0, v.bp)("lg+", t), " {\n    display: ").concat(n ? "none" : "flex", ";\n  }\n")
+                }),
+                x = m.ZP.li.withConfig({
+                    componentId: "sc-6211780f-2"
+                })(NavigationPrimary_styles_templateObject1(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return (0, v.vm)("ui-1", n)
+                }, (0, v.kF)(6)),
+                O = m.ZP.div.withConfig({
+                    componentId: "sc-6211780f-3"
+                })(e => {
+                    let {
+                        isOpen: n,
+                        theme: t
+                    } = e;
+                    return "\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: 0;\n  overflow: hidden;\n  opacity: 0;\n  visibility: hidden;\n  height: 100vh;\n  z-index: ".concat(t.zIndex.navInactive, ";\n  max-height: calc(var(--navHeight) + ").concat((0, v.OF)("header"), " + var(--infoBannerHeight));\n  background: ").concat((0, v.qz)("blur"), ";\n  backdrop-filter: blur(10px);\n  transition: all 0.3s var(--ease-fade), visibility 0s 0.3s;\n\n  ").concat(n ? "\n          opacity: 1;\n          visibility: visible;\n          transition: all 0.3s var(--ease-fade), visibility 0s;\n        " : "", "\n  ")
+                }),
+                k = m.ZP.div.withConfig({
+                    componentId: "sc-6211780f-4"
+                })(e => {
+                    let {
+                        isOpen: n,
+                        theme: t
+                    } = e;
+                    return "\n  position: fixed;\n  top: calc(".concat((0, v.OF)("header"), " + var(--navHeight));\n  bottom: 0;\n  right: 0;\n  left: 0;\n  height: 100%;\n  z-index: ").concat(t.zIndex.navInactive - 1, ";\n  transition: visibility 0s 0.51s, opacity .5s var(--ease-fade), top .3s var(--ease-fade);\n  opacity: 0;\n  visibility: hidden;\n  background: ").concat((0, v.qz)("overlay"), ";\n  width: 100%;\n  pointer-events: none;\n\n  ").concat(n ? "\n          opacity: 1;\n          visibility: visible;\n          transition: opacity 1s 0.3s var(--ease-fade),\n            top 0.3s var(--ease-fade);\n        " : "", "\n")
+                });
+            var C = t(24478),
+                N = t(24131);
+            let useTouchWithin = e => {
+                let [n, t] = (0, a.useState)(!1);
+                return (0, a.useEffect)(() => {
+                    let n = e.current,
+                        onTouchElement = () => {
+                            n && t(!0)
+                        },
+                        onTouchOutside = e => {
+                            n && !n.contains(e.target) && t(!1)
+                        };
+                    return null == n || n.addEventListener("touchstart", onTouchElement, !0), document.addEventListener("touchstart", onTouchOutside, !0), () => {
+                        null == n || n.removeEventListener("touchstart", onTouchElement), document.removeEventListener("touchstart", onTouchOutside)
+                    }
+                }, [e]), {
+                    isTouchWithin: n
+                }
+            };
+            var I = t(72539),
+                w = t(28220);
+
+            function NavigationColumns_styles_templateObject() {
+                let e = (0, p._)(["\n  position: absolute;\n  top: ", ";\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: 0;\n  opacity: 0;\n  visibility: hidden;\n  max-height: var(--navHeight);\n  z-index: ", ";\n  transition:\n    max-height 0.3s var(--ease-fade),\n    opacity 0.3s var(--ease-fade),\n    visibility 0s 0.3s;\n  color: ", ";\n\n  ", "\n"]);
+                return NavigationColumns_styles_templateObject = function() {
+                    return e
+                }, e
+            }
+
+            function NavigationColumns_styles_templateObject1() {
+                let e = (0, p._)(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  margin: 0;\n  overflow-y: auto;\n  transition: all 0.3s var(--ease-fade);\n  ", "\n"]);
+                return NavigationColumns_styles_templateObject1 = function() {
+                    return e
+                }, e
+            }
+
+            function NavigationColumns_styles_templateObject2() {
+                let e = (0, p._)(["\n  display: grid;\n  column-gap: ", ";\n  grid-template-columns: repeat(6, 1fr);\n"]);
+                return NavigationColumns_styles_templateObject2 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject3() {
+                let e = (0, p._)(["\n  padding-left: var(--outer-gutter);\n"]);
+                return _templateObject3 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject4() {
+                let e = (0, p._)(["\n  margin-bottom: ", ";\n"]);
+                return _templateObject4 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject5() {
+                let e = (0, p._)(["\n  margin-top: ", ";\n"]);
+                return _templateObject5 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject6() {
+                let e = (0, p._)(["\n  margin-bottom: ", ";\n"]);
+                return _templateObject6 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject7() {
+                let e = (0, p._)(["\n  transition: color 0.25s linear;\n  text-decoration: none;\n\n  ", ";\n\n  ", ";\n\n  ", "\n"]);
+                return _templateObject7 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject8() {
+                let e = (0, p._)(["\n  ", ";\n"]);
+                return _templateObject8 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject9() {
+                let e = (0, p._)(["\n  ", "\n  margin-top: ", "\n"]);
+                return _templateObject9 = function() {
+                    return e
+                }, e
+            }
+
+            function _templateObject10() {
+                let e = (0, p._)(["\n  ", "\n"]);
+                return _templateObject10 = function() {
+                    return e
+                }, e
+            }
+            let P = m.ZP.div.withConfig({
+                    componentId: "sc-145ec6c-0"
+                })(NavigationColumns_styles_templateObject(), (0, v.OF)("header"), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return n.zIndex.navInactive
+                }, (0, v.xl)("primary"), e => {
+                    let {
+                        expanded: n,
+                        theme: t
+                    } = e;
+                    return n ? "\n          z-index: ".concat(t.zIndex.navActive, ";\n          opacity: 1;\n          visibility: visible;\n          transition: opacity 0.3s 0.2s var(--ease-fade), visibility 0s 0.2s;\n        ") : ""
+                }),
+                H = m.ZP.div.withConfig({
+                    componentId: "sc-145ec6c-1"
+                })(NavigationColumns_styles_templateObject1(), (0, v.OF)("content"), (0, v.kF)(20), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return (0, v.st)("max-height", n, {
+                        sm: "calc(100vh - ".concat(n.spacers.header.sm, "px - var(--infoBannerHeight))"),
+                        md: "calc(100vh - ".concat(n.spacers.header.md, "px - var(--infoBannerHeight))"),
+                        lg: "calc(100vh - ".concat(n.spacers.header.lg, "px - var(--infoBannerHeight))"),
+                        xl: "calc(100vh - ".concat(n.spacers.header.xl, "px - var(--infoBannerHeight))")
+                    })
+                }),
+                E = m.ZP.ul.withConfig({
+                    componentId: "sc-145ec6c-2"
+                })(NavigationColumns_styles_templateObject2(), (0, v.kF)(4)),
+                F = m.ZP.li.withConfig({
+                    componentId: "sc-145ec6c-3"
+                })(_templateObject3()),
+                Z = m.ZP.ul.withConfig({
+                    componentId: "sc-145ec6c-4"
+                })(_templateObject4(), e => {
+                    let {
+                        $separator: n
+                    } = e;
+                    return n ? (0, v.kF)(60) : (0, v.kF)(40)
+                }),
+                L = m.ZP.ul.withConfig({
+                    componentId: "sc-145ec6c-5"
+                })(_templateObject5(), (0, v.kF)(20)),
+                S = m.ZP.li.withConfig({
+                    componentId: "sc-145ec6c-6"
+                })(_templateObject6(), e => {
+                    let {
+                        $separator: n
+                    } = e;
+                    return n ? (0, v.kF)(20) : (0, v.kF)(4)
+                }),
+                CommonNavStyles = e => "\n  ".concat((0, v.vm)("ui-1", e), "\n  display: inline-flex;\n"),
+                z = (0, m.ZP)(w.r).withConfig({
+                    componentId: "sc-145ec6c-7"
+                })(_templateObject7(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return CommonNavStyles(n)
+                }, (0, v.bP)(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return "\n  @media ".concat((0, v.bp)("hover", n), " {\n    &:hover {\n      color: ").concat((0, v.xl)("tertiary"), ";\n    }\n  }\n")
+                }),
+                T = m.ZP.span.withConfig({
+                    componentId: "sc-145ec6c-8"
+                })(_templateObject8(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return CommonNavStyles(n)
+                }),
+                M = (0, m.ZP)(z).withConfig({
+                    componentId: "sc-145ec6c-9"
+                })(_templateObject9(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return (0, v.vm)("ui-2", n)
+                }, e => {
+                    let {
+                        $withSpacing: n
+                    } = e;
+                    return n && (0, v.kF)(40)
+                }),
+                U = m.ZP.span.withConfig({
+                    componentId: "sc-145ec6c-10"
+                })(_templateObject10(), e => {
+                    let {
+                        theme: n
+                    } = e;
+                    return (0, v.vm)("ui-2", n)
+                });
+            var D = t(68810),
+                R = t(55953);
+            let NavigationColumnSection = e => {
+                    var n;
+                    let {
+                        columnItem: t,
+                        topCategory: a,
+                        id: r
+                    } = e, {
+                        setGtmMenuCategories: l
+                    } = (0, R.K)(), o = t.linkUrl ? M : U, c = t.linkUrl ? {
+                        href: t.linkUrl,
+                        onClick: () => {
+                            (0, D.CV)(a, null == t ? void 0 : t.linkDisplayName), l(a, null == t ? void 0 : t.linkDisplayName)
+                        },
+                        id: t.menuCategoryUniqueId
+                    } : {};
+                    return (0, i.jsxs)(Z, {
+                        $separator: t.separator,
+                        "data-cs-override-id": r,
+                        children: [(0, i.jsx)(o, { ...c,
+                            children: t.linkDisplayName
+                        }), (0, i.jsx)(L, {
+                            children: null === (n = t.subcategories) || void 0 === n ? void 0 : n.map((e, n) => (0, i.jsxs)(S, {
+                                $separator: e.separator,
+                                onClick: () => {
+                                    (0, D.CV)(a, (null == t ? void 0 : t.linkDisplayName) || "", (null == e ? void 0 : e.linkDisplayName) || ""), l(a, null == t ? void 0 : t.linkDisplayName, null == e ? void 0 : e.linkDisplayName)
+                                },
+                                children: [e.linkUrl && (0, i.jsx)(z, {
+                                    href: e.linkUrl,
+                                    id: e.menuCategoryUniqueId,
+                                    children: e.linkDisplayName
+                                }), !e.linkUrl && (0, i.jsx)(T, {
+                                    children: e.linkDisplayName
+                                })]
+                            }, "columnItem-".concat(n)))
+                        })]
+                    })
+                },
+                NavigationColumn = e => {
+                    let {
+                        columnItems: n,
+                        topCategory: t,
+                        id: a
+                    } = e;
+                    return (0, i.jsx)(F, {
+                        children: (null == n ? void 0 : n.length) > 0 && n.map((e, n) => (0, i.jsx)(NavigationColumnSection, {
+                            columnItem: e,
+                            topCategory: t,
+                            id: a
+                        }, "categoryItem".concat(n)))
+                    })
+                },
+                B = (0, a.forwardRef)((e, n) => {
+                    let {
+                        id: t,
+                        label: a,
+                        categories: r,
+                        $isActive: l = !1
+                    } = e;
+                    return (0, i.jsx)(P, {
+                        expanded: l,
+                        children: (0, i.jsx)(H, {
+                            ref: n,
+                            children: (0, i.jsx)(E, {
+                                children: null == r ? void 0 : r.map((e, n) => (0, i.jsx)(NavigationColumn, {
+                                    topCategory: a,
+                                    columnItems: e,
+                                    id: t
+                                }, "category-".concat(n)))
+                            })
+                        })
+                    })
+                });
+            B.displayName = "NavigationColumns";
+            let NavigationItem = e => {
+                let {
+                    id: n,
+                    url: t,
+                    label: r,
+                    categories: l,
+                    handleHoverState: o,
+                    handleLeaveState: c,
+                    isActive: s,
+                    transparent: u,
+                    isRdLink: d,
+                    dataQaTag: p
+                } = e, m = (0, a.useRef)(null), v = (0, a.useRef)(null), h = (0, N.L)(m), {
+                    isTouchWithin: f
+                } = useTouchWithin(m), handleMouseEnter = () => {
+                    let e = 0;
+                    v && v.current && (e = v.current.offsetHeight), o && o(n, e)
+                };
+                return (0, a.useEffect)(() => {
+                    h || f ? setTimeout(() => handleMouseEnter()) : c && c()
+                }, [h, f]), (0, i.jsxs)("li", {
+                    ref: m,
+                    onMouseEnter: handleMouseEnter,
+                    onMouseLeave: c,
+                    children: [(0, i.jsx)(I.R, {
+                        linkUrl: t,
+                        $isActive: s,
+                        $transparent: u,
+                        $isRdLink: d,
+                        id: n,
+                        dataQaTag: p,
+                        children: d ? (0, i.jsxs)(i.Fragment, {
+                            children: [(0, i.jsx)(I.P, {}), (0, i.jsx)("span", {
+                                children: r
+                            })]
+                        }) : r
+                    }), !d && l && l.length > 0 && (0, i.jsx)(B, {
+                        $isActive: s || !1,
+                        id: n,
+                        ref: v,
+                        label: r,
+                        categories: l
+                    })]
+                })
+            };
+            var q = t(84489);
+            let NavigationPrimary = e => {
+                let {
+                    rdLink: n,
+                    handleSectionChange: t,
+                    navOpen: r,
+                    triggerOpenNav: l,
+                    items: o,
+                    transparent: c
+                } = e, [s, p] = (0, a.useState)(""), [m, v] = (0, a.useState)(0), h = (0, b.useRouter)(), {
+                    UIState: f
+                } = (0, d.MS)(), {
+                    t: g
+                } = (0, u.T)(), N = (0, a.useCallback)(() => {
+                    p(""), v(0)
+                }, []), handleHoverState = (e, n) => {
+                    p(e), v(n)
+                };
+                return (0, a.useEffect)(() => {
+                    t && t(s)
+                }, [s]), (0, a.useEffect)(() => {
+                    document.documentElement.style.setProperty("--navHeight", "".concat(m + f.informativeBannerHeight, "px"))
+                }, [m, f.informativeBannerHeight]), (0, a.useEffect)(() => {
+                    let handleRouteChange = () => {
+                        N()
+                    };
+                    return h.events.on("routeChangeStart", handleRouteChange), () => {
+                        h.events.off("routeChangeStart", handleRouteChange)
+                    }
+                }, [h, N]), (0, i.jsxs)(i.Fragment, {
+                    children: [(0, i.jsxs)(j, {
+                        "aria-label": g("accessibility.navigation-primary"),
+                        children: [(0, i.jsx)(_, {
+                            displayMobile: !0,
+                            children: (0, i.jsx)(x, {
+                                children: !r && (0, i.jsx)(C.E, {
+                                    icon: y.Wm.Menu,
+                                    label: g("accessibility.navigation-menu"),
+                                    onClick: () => l(),
+                                    id: "menu-burger"
+                                })
+                            })
+                        }), (0, i.jsx)(O, {
+                            isOpen: "" !== s
+                        }), (0, i.jsxs)(_, {
+                            displayMobile: !1,
+                            children: [o.map((e, n) => {
+                                let t = e.menuCategoryUniqueId;
+                                return (0, i.jsx)(NavigationItem, {
+                                    url: e.linkUrl || "",
+                                    label: e.linkDisplayName || "",
+                                    id: t,
+                                    transparent: c,
+                                    handleHoverState: handleHoverState,
+                                    handleLeaveState: N,
+                                    isActive: s === t,
+                                    categories: e.subcategories,
+                                    dataQaTag: t ? "header-".concat(t) : "header-menu-".concat(n + 1)
+                                }, t)
+                            }), n ? (0, i.jsx)(NavigationItem, {
+                                url: n.linkUrl || "",
+                                label: n.linkDisplayName || "",
+                                id: q.pM,
+                                transparent: c,
+                                isActive: s === q.pM,
+                                isRdLink: !0
+                            }) : null]
+                        })]
+                    }), (0, i.jsx)(k, {
+                        isOpen: "" !== s
+                    })]
+                })
+            };
+            var $ = t(93616),
+                A = t(11486),
+                V = t(17469);
+            let Header = e => {
+                let {
+                    light: n,
+                    menu: t,
+                    hideLogo: r,
+                    transparent: p
+                } = e, {
+                    UIState: m
+                } = (0, d.MS)(), {
+                    t: v
+                } = (0, u.T)(), {
+                    triggerCloseNav: b,
+                    triggerOpenNav: y,
+                    navOpen: j
+                } = (0, o.H)(), [_, x] = (0, a.useState)(p || !1), {
+                    isDesktop: O
+                } = (0, s.F)();
+                return (0, i.jsx)(l(), {
+                    active: j,
+                    children: (0, i.jsxs)(h, {
+                        navOpen: j,
+                        hidden: !m.isHeaderVisible,
+                        light: n,
+                        transparent: _,
+                        children: [(0, i.jsxs)(f, {
+                            transparent: p,
+                            children: [(0, i.jsx)(NavigationPrimary, {
+                                items: t.items,
+                                rdLink: t.rdLink ? t.rdLink : void 0,
+                                transparent: _,
+                                navOpen: j,
+                                triggerOpenNav: y,
+                                handleSectionChange: e => {
+                                    x(!!(p && "" === e))
+                                }
+                            }), (0, i.jsx)(g, {
+                                hide: !!r,
+                                children: (0, i.jsx)(w.r, {
+                                    href: c.L.url(c.L.names.home),
+                                    "aria-label": v("accessibility.header-logo"),
+                                    "data-qa": "header-home-btn",
+                                    children: (0, i.jsx)($.T, {})
+                                })
+                            }), (0, i.jsx)(A.y, {
+                                items: t.generalLinks
+                            })]
+                        }), !O && (0, i.jsx)(V.d, {
+                            navOpen: j,
+                            triggerCloseNav: b,
+                            items: t.items,
+                            secondaryItems: t.generalLinks,
+                            rdLink: t.rdLink
+                        })]
+                    })
+                })
+            }
+        }
+    }
+]);

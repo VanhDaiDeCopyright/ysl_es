@@ -1,0 +1,643 @@
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [3684], {
+        50652: function(e, t, r) {
+            r.d(t, {
+                P: function() {
+                    return n
+                },
+                a: function() {
+                    return a
+                }
+            });
+            let n = {
+                    ERR_OCAPI_1016: "ERR_OCAPI_1016",
+                    ERR_API_1019: "ERR_API_1019",
+                    ERR_OCAPI_1018: "ERR_OCAPI_1018"
+                },
+                a = {
+                    OCAPI_HOOK_EXCEPTION: "HookStatusException",
+                    OCAPI_BASKET_QUOTA_EXCEEDED: "BasketQuotaExceededException",
+                    OCAPI_BASKET_QUOTA_REACHED: "BasketQuotaReachedException",
+                    EMPLOYEE_SALE_QUOTA_EXCEEDED: "EmployeeSaleQuotaExceededException",
+                    EMPLOYEE_SALE_MIXED_BASKET: "EmployeeSaleMixedBasketException",
+                    MAX_ORDER_QUANTITY_REACHED: "MaximumQuantityExceededException"
+                }
+        },
+        94e3: function(e, t, r) {
+            r.d(t, {
+                q: function() {
+                    return useGtmProductsAddedToCart
+                }
+            });
+            var n = r(67294),
+                a = r(15811);
+            let useGtmProductsAddedToCart = () => {
+                let {
+                    value: e,
+                    setValue: t
+                } = (0, a.y)("gtmProductsAddedToCart", JSON.stringify([]), a.Z.LOCAL_STORAGE), r = (0, n.useCallback)(r => {
+                    t(JSON.stringify([...JSON.parse(e), r]))
+                }, [e, t]), i = (0, n.useCallback)(r => {
+                    let n = JSON.parse(e);
+                    t(JSON.stringify(n.filter(e => e.skuId !== r)))
+                }, [e, t]);
+                return {
+                    gtmProductsAddedToCart: JSON.parse(e),
+                    setGtmProductsAddedToCart: r,
+                    setGtmProductsRemoveFromCart: i
+                }
+            }
+        },
+        99891: function(e, t, r) {
+            r.d(t, {
+                Q: function() {
+                    return usePowerfront
+                }
+            });
+            var n = r(67294),
+                a = r(1432);
+            let usePowerfront = () => {
+                let e = (0, n.useRef)(new Set),
+                    t = (0, n.useCallback)(t => {
+                        e.current.has(t) || ((0, a.F)(t), e.current.add(t))
+                    }, []);
+                return {
+                    triggerEventOnce: t
+                }
+            }
+        },
+        8853: function(e, t, r) {
+            r.d(t, {
+                Im: function() {
+                    return a
+                },
+                R0: function() {
+                    return s
+                },
+                jG: function() {
+                    return d
+                },
+                kC: function() {
+                    return o
+                },
+                q5: function() {
+                    return i
+                },
+                rY: function() {
+                    return u
+                }
+            });
+            var n = r(54232);
+            let a = "cartReminderState",
+                i = "[]",
+                u = (0, n.M)("3000", 3e3),
+                o = (0, n.M)("1800000", 1e4),
+                d = (0, n.M)("1800000", 3e4),
+                s = (0, n.M)("7200000", 18e5)
+        },
+        57310: function(e, t, r) {
+            r.d(t, {
+                z: function() {
+                    return u
+                }
+            });
+            var n = r(72042),
+                a = r(22059),
+                i = r(8853);
+            let u = {
+                createInitialSession: () => ({
+                    sessionStartedAt: Date.now(),
+                    displayed: !1,
+                    recentAddToCart: !1
+                }),
+                isExpired: e => {
+                    let t = Date.now() - e.sessionStartedAt;
+                    return t > i.R0
+                },
+                canDisplay: e => {
+                    let t = ["".concat(a.b4[a.zm.category].url, "/"), "".concat(a.b4[a.zm.product].url, "/"), "".concat(a.b4[a.zm.legalPages].url, "/"), "".concat(a.b4[a.zm.content].url, "/").concat(n.Gy.FAQ), "".concat(a.b4[a.zm.content].url, "/").concat(n.Gy.CLIENT_SERVICE)],
+                        r = t.some(t => e.pathname.includes(t));
+                    return r && e.isCartReminderEnabledForCountry && !!e.hasItems && !e.isEmployee
+                },
+                shouldClose: (e, t) => !u.canDisplay(e) && t.isCartReminderOpen,
+                canTriggerInactivity: (e, t, r) => u.canDisplay(e) && !t.isMiniCartOpen && !t.isCartReminderOpen && !r.displayed,
+                canDisplayOnNavigation: (e, t, r) => u.canDisplay(e) && !t.isMiniCartOpen && !t.isCartReminderOpen && !r.displayed && !r.recentAddToCart
+            }
+        },
+        61882: function(e, t, r) {
+            r.d(t, {
+                X: function() {
+                    return useCartReminder
+                },
+                A: function() {
+                    return useCartReminderSession
+                }
+            });
+            var n = r(67294),
+                a = r(11163),
+                i = r(55049),
+                u = r(50303),
+                o = r(96270),
+                d = r(52268),
+                s = r(70437),
+                l = r(22712),
+                c = r(69683);
+            let useMouseInactivity = function(e, t) {
+                let r = !(arguments.length > 2) || void 0 === arguments[2] || arguments[2],
+                    a = (0, n.useRef)(null),
+                    i = (0, n.useRef)(t);
+                (0, n.useEffect)(() => {
+                    i.current = t
+                }, [t]), (0, n.useEffect)(() => {
+                    if (!r) return;
+                    let resetTimer = () => {
+                        a.current && clearTimeout(a.current), a.current = setTimeout(() => {
+                            i.current()
+                        }, e)
+                    };
+                    return resetTimer(), document.addEventListener("mousemove", resetTimer), document.addEventListener("scroll", resetTimer, !0), document.addEventListener("touchstart", resetTimer), document.addEventListener("touchmove", resetTimer), document.addEventListener("click", resetTimer), document.addEventListener("keydown", resetTimer), () => {
+                        document.removeEventListener("mousemove", resetTimer), document.removeEventListener("scroll", resetTimer, !0), document.removeEventListener("touchstart", resetTimer), document.removeEventListener("touchmove", resetTimer), document.removeEventListener("click", resetTimer), document.removeEventListener("keydown", resetTimer), a.current && clearTimeout(a.current)
+                    }
+                }, [e, r])
+            };
+            var m = r(15811),
+                E = r(57310),
+                I = r(8853);
+            let getRemainingSessionTime = e => {
+                    let t = Date.now() - e.sessionStartedAt;
+                    return I.R0 - t
+                },
+                getStoredSessionState = () => {
+                    let e = localStorage.getItem(I.Im);
+                    return e ? JSON.parse(e) : E.z.createInitialSession()
+                },
+                resetSessionImmediately = e => {
+                    let t = E.z.createInitialSession();
+                    e(t)
+                },
+                scheduleSessionReset = (e, t) => setTimeout(() => resetSessionImmediately(e), t),
+                useCartReminderSession = () => {
+                    let {
+                        setValue: e,
+                        value: t
+                    } = (0, m.y)(I.Im, void 0, m.Z.LOCAL_STORAGE), r = (0, n.useMemo)(() => {
+                        if (!t) return null;
+                        try {
+                            return JSON.parse(t)
+                        } catch (e) {
+                            return null
+                        }
+                    }, [t]), a = (0, n.useCallback)(t => {
+                        if ("function" == typeof t) {
+                            let r = localStorage.getItem(I.Im),
+                                n = r ? JSON.parse(r) : E.z.createInitialSession(),
+                                a = t(n);
+                            e(JSON.stringify(a))
+                        } else e(JSON.stringify(t))
+                    }, [e]);
+                    return {
+                        setSessionState: a,
+                        sessionState: r
+                    }
+                },
+                useCartReminder = () => {
+                    let {
+                        data: e
+                    } = (0, u.jD)(), {
+                        data: t
+                    } = (0, c.O)(), r = null == e ? void 0 : e.totalProducts, {
+                        pathname: m,
+                        locale: C
+                    } = (0, a.useRouter)(), {
+                        dispatchModal: y,
+                        stateModal: R
+                    } = (0, o.vR)(), p = (null == t ? void 0 : t.isEmployee) || !1, {
+                        setSessionState: v,
+                        sessionState: A
+                    } = useCartReminderSession();
+                    (0, n.useEffect)(() => {
+                        null === A && v(E.z.createInitialSession())
+                    }, []);
+                    let T = null === I.q5 || void 0 === I.q5 ? void 0 : I.q5.includes((0, i.Wl)(C)),
+                        S = R.id === d.Fv.CART_REMINDER,
+                        P = R.id === d.Fv.OPEN_MINICART,
+                        f = (0, n.useMemo)(() => ({
+                            pathname: m,
+                            isCartReminderEnabledForCountry: T,
+                            hasItems: r,
+                            isEmployee: p
+                        }), [m, T, r, p]),
+                        _ = (0, n.useMemo)(() => ({
+                            isMiniCartOpen: P,
+                            isCartReminderOpen: S
+                        }), [P, S]),
+                        handleCartReminderModal = e => {
+                            y({
+                                type: e,
+                                id: d.Fv.CART_REMINDER
+                            })
+                        },
+                        openAndTrackCartReminder = () => {
+                            handleCartReminderModal(o.Yr.OPEN), (0, s.JB)("cartReminder", l.Xf.VIEW_POPIN, m, "impression", l.pt.BANNER)
+                        };
+                    (0, n.useEffect)(() => {
+                        if (null === A || (E.z.shouldClose(f, _) && handleCartReminderModal(o.Yr.CLOSE), !E.z.canDisplayOnNavigation(f, _, A))) return;
+                        let e = setTimeout(() => {
+                            R.id !== d.Fv.OPEN_MINICART && (openAndTrackCartReminder(), v(e => ({ ...e,
+                                displayed: !0
+                            })))
+                        }, I.rY);
+                        return () => {
+                            clearTimeout(e)
+                        }
+                    }, [f, _, A, R.id, v, handleCartReminderModal, openAndTrackCartReminder]), (0, n.useEffect)(() => {
+                        if (!S) return;
+                        let e = setTimeout(() => handleCartReminderModal(o.Yr.CLOSE), I.kC);
+                        return () => {
+                            clearTimeout(e)
+                        }
+                    }, [handleCartReminderModal, S]);
+                    let O = (0, n.useCallback)(() => {
+                            null !== A && E.z.canTriggerInactivity(f, _, A) && (openAndTrackCartReminder(), v(e => ({ ...e,
+                                displayed: !0
+                            })))
+                        }, [f, _, openAndTrackCartReminder, A, v]),
+                        g = (0, n.useMemo)(() => E.z.canDisplay(f), [f]);
+                    useMouseInactivity(I.jG, O, g), (0, n.useEffect)(() => {
+                        let e = getStoredSessionState();
+                        if (E.z.isExpired(e)) {
+                            S && handleCartReminderModal(o.Yr.CLOSE), resetSessionImmediately(v);
+                            return
+                        }
+                        let t = getRemainingSessionTime(e),
+                            r = scheduleSessionReset(v, t);
+                        return () => clearTimeout(r)
+                    }, [v, S, handleCartReminderModal, A])
+                }
+        },
+        50303: function(e, t, r) {
+            r.d(t, {
+                tI: function() {
+                    return useAddToCart
+                },
+                gB: function() {
+                    return useAddToCartApplePay
+                },
+                jD: function() {
+                    return useCart
+                },
+                rQ: function() {
+                    return useRemoveItem
+                },
+                Uy: function() {
+                    return useUpdateItem
+                }
+            });
+            var n, a, i = r(36492),
+                u = r(85945),
+                o = r(48228),
+                d = r(69539),
+                s = r(67294),
+                l = r(99891),
+                c = r(97385),
+                m = r(22712);
+            let usePowerfrontCart = () => {
+                let {
+                    triggerEventOnce: e
+                } = (0, l.Q)(), t = (0, s.useRef)(!1), {
+                    data: r
+                } = useCart(), n = (0, s.useMemo)(() => {
+                    var e;
+                    return null == r ? void 0 : null === (e = r.productItems) || void 0 === e ? void 0 : e.map(e => null == e ? void 0 : e.productId).filter(Boolean)
+                }, [r]), {
+                    data: a
+                } = (0, c.sw)(n), hasDuplicatesBy = e => t => {
+                    let r = t.reduce((t, r) => {
+                        let n = null == r ? void 0 : r.masterId,
+                            a = null == r ? void 0 : r[e];
+                        return n && a && (t[n] || (t[n] = new Set)).add(a), t
+                    }, {});
+                    return Object.values(r).some(e => 2 === e.size)
+                };
+                return (0, s.useEffect)(() => {
+                        if (!t.current || !a) return;
+                        let checkAndTriggerEvent = (t, r) => {
+                            hasDuplicatesBy(t)(a) && e(r)
+                        };
+                        checkAndTriggerEvent("color", m.GX.TWO_COLORS_IN_CART), checkAndTriggerEvent("size", m.GX.TWO_SIZES_IN_CART), t.current = !1
+                    }, [a, e]),
+                    function() {
+                        t.current = !0
+                    }
+            };
+            var E = r(96270),
+                I = r(21488),
+                C = r(99038),
+                y = r(69683),
+                R = r(11163),
+                p = r(33796),
+                v = r(80885),
+                A = r(1765),
+                T = r(94e3),
+                S = r(2522),
+                P = r(6151),
+                f = r(52268);
+            (n = a || (a = {})).FETCHING = "fetching", n.PAUSED = "paused", n.IDLE = "idle";
+            var _ = r(55733),
+                O = r(39499);
+            let g = "https://www.ysl.com/api/v1/ysl/cart",
+                getCart = async e => {
+                    let {
+                        locale: t
+                    } = e, {
+                        data: r
+                    } = await (0, O.a)("".concat(g, "/"), {
+                        locale: t
+                    });
+                    return r
+                },
+                addItem = async e => {
+                    let {
+                        locale: t,
+                        productId: r,
+                        quantity: n,
+                        list: a
+                    } = e, i = {
+                        method: "POST",
+                        body: JSON.stringify({
+                            productId: r,
+                            quantity: n,
+                            list: a
+                        })
+                    }, {
+                        data: u
+                    } = await (0, O.a)("".concat(g, "/item"), {
+                        locale: t
+                    }, i);
+                    return u
+                },
+                addItemApplePay = async e => {
+                    let {
+                        locale: t,
+                        productId: r,
+                        quantity: n,
+                        list: a,
+                        recreateCart: i
+                    } = e, u = {
+                        method: "POST",
+                        body: JSON.stringify({
+                            productId: r,
+                            quantity: n,
+                            list: a,
+                            recreateCart: i
+                        })
+                    }, {
+                        data: o
+                    } = await (0, O.a)("".concat(g, "/item/apple-pay"), {
+                        locale: t
+                    }, u);
+                    return o
+                },
+                removeItem = async e => {
+                    let {
+                        locale: t,
+                        itemId: r
+                    } = e, n = {
+                        method: "DELETE",
+                        body: JSON.stringify({
+                            itemId: r
+                        })
+                    }, {
+                        data: a
+                    } = await (0, O.a)("".concat(g, "/item"), {
+                        locale: t
+                    }, n);
+                    return a
+                },
+                updateItem = async e => {
+                    let {
+                        locale: t,
+                        itemId: r,
+                        quantity: n
+                    } = e, a = {
+                        method: "PATCH",
+                        body: JSON.stringify({
+                            itemId: r,
+                            quantity: n
+                        })
+                    }, {
+                        data: i
+                    } = await (0, O.a)("".concat(g, "/item"), {
+                        locale: t
+                    }, a);
+                    return i
+                },
+                N = {
+                    getCart: getCart,
+                    addItem: addItem,
+                    addItemApplePay: addItemApplePay,
+                    removeItem: removeItem,
+                    updateItem: updateItem
+                };
+            var D = r(50652),
+                M = r(61882),
+                h = r(57310);
+            let useCart = () => {
+                    let {
+                        data: e
+                    } = (0, y.O)(), {
+                        locale: t
+                    } = (0, R.useRouter)(), r = (0, P.Z)();
+                    return (0, i.a)({
+                        queryKey: ["cart", null == e ? void 0 : e.usid, null == e ? void 0 : e.promotionsHash, t],
+                        queryFn: () => N.getCart({
+                            locale: t
+                        }),
+                        enabled: !!(null == e ? void 0 : e.usid) && !r
+                    })
+                },
+                useAddToCart = e => {
+                    let t = (0, u.NL)(),
+                        {
+                            gtmProductList: r
+                        } = (0, d.Z)(),
+                        {
+                            dispatchModal: n
+                        } = (0, E.vR)(),
+                        {
+                            isMobile: i
+                        } = (0, I.F)(),
+                        {
+                            t: s
+                        } = (0, C.T)(),
+                        {
+                            locale: l
+                        } = (0, R.useRouter)(),
+                        {
+                            getGtmAlgoliaQueryId: c
+                        } = (0, S.l)(),
+                        m = usePowerfrontCart(),
+                        {
+                            UIActions: y
+                        } = (0, v.MS)(),
+                        {
+                            setGtmProductsAddedToCart: p
+                        } = (0, T.q)(),
+                        {
+                            gtmProductCategories: P
+                        } = (0, A.D)(),
+                        {
+                            setSessionState: _
+                        } = (0, M.A)(),
+                        O = null == e ? void 0 : e.id;
+                    return (0, o.D)({
+                        mutationFn: async () => await N.addItem({
+                            locale: l,
+                            productId: O,
+                            quantity: 1,
+                            list: r
+                        }),
+                        onSuccess: async () => {
+                            await t.invalidateQueries({
+                                queryKey: ["cart"]
+                            });
+                            let r = t.getQueryState(["cart"]),
+                                u = i ? s("global.mini-cart-add-to-cart-title") : null;
+                            (null == r ? void 0 : r.fetchStatus) !== a.FETCHING && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.OPEN_MINICART,
+                                data: {
+                                    title: u,
+                                    lastProductAddedSkuId: O
+                                }
+                            }), y.setAddToCartButtonIsLoading(!1), p({ ...P,
+                                skuId: O,
+                                algoliaQueryId: c(null == e ? void 0 : e.smcId).algoliaQueryId
+                            }), m(), _(e => ({ ...e,
+                                recentAddToCart: !0
+                            }))
+                        },
+                        onError: e => {
+                            e.code === D.P.ERR_OCAPI_1016 && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.PDP_MAXIMUM_QUANTITY
+                            }), e.code === D.P.ERR_API_1019 && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.PDP_EMPLOYEE_SALE_MIXED_BASKED
+                            }), y.setAddToCartButtonIsLoading(!1)
+                        }
+                    })
+                },
+                useAddToCartApplePay = e => {
+                    let t = (0, u.NL)(),
+                        {
+                            gtmProductList: r
+                        } = (0, d.Z)(),
+                        {
+                            dispatchModal: n
+                        } = (0, E.vR)(),
+                        {
+                            locale: i
+                        } = (0, R.useRouter)(),
+                        {
+                            setGtmProductsAddedToCart: s
+                        } = (0, T.q)(),
+                        {
+                            gtmProductCategories: l
+                        } = (0, A.D)(),
+                        {
+                            getGtmAlgoliaQueryId: c
+                        } = (0, S.l)();
+                    return (0, o.D)({
+                        mutationFn: async t => {
+                            let {
+                                recreateCart: n
+                            } = t;
+                            return await N.addItemApplePay({
+                                locale: i,
+                                productId: e,
+                                quantity: 1,
+                                list: r,
+                                recreateCart: n
+                            })
+                        },
+                        onSuccess: async () => {
+                            await t.invalidateQueries({
+                                queryKey: ["cart"]
+                            });
+                            let r = t.getQueryState(["cart"]);
+                            (null == r ? void 0 : r.fetchStatus) !== a.FETCHING && (window.location.href = p.L.toAbs("".concat(_.Xl.cart, "#applePayPDP"), i)), s({ ...l,
+                                skuId: e,
+                                algoliaQueryId: c(e).algoliaQueryId
+                            })
+                        },
+                        onError: t => {
+                            t.code === D.P.ERR_OCAPI_1018 && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.PDP_APPLE_PAY_CHECK,
+                                data: {
+                                    skuId: e
+                                }
+                            }), t.code === D.P.ERR_OCAPI_1016 && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.PDP_MAXIMUM_QUANTITY
+                            }), t.code === D.P.ERR_API_1019 && n({
+                                type: E.Yr.OPEN,
+                                id: f.Fv.PDP_EMPLOYEE_SALE_MIXED_BASKED
+                            })
+                        }
+                    })
+                },
+                useUpdateItem = () => {
+                    let e = (0, u.NL)(),
+                        {
+                            locale: t
+                        } = (0, R.useRouter)();
+                    return (0, o.D)({
+                        mutationFn: e => {
+                            let {
+                                itemId: r,
+                                quantity: n
+                            } = e;
+                            return N.updateItem({
+                                locale: t,
+                                itemId: r,
+                                quantity: n
+                            })
+                        },
+                        onSuccess: () => {
+                            e.invalidateQueries({
+                                queryKey: ["cart"]
+                            })
+                        }
+                    })
+                },
+                useRemoveItem = () => {
+                    let e = (0, u.NL)(),
+                        {
+                            locale: t
+                        } = (0, R.useRouter)(),
+                        {
+                            setSessionState: r
+                        } = (0, M.A)();
+                    return (0, o.D)({
+                        mutationFn: e => {
+                            let {
+                                itemId: r
+                            } = e;
+                            return N.removeItem({
+                                locale: t,
+                                itemId: r
+                            })
+                        },
+                        onSuccess: t => {
+                            e.invalidateQueries({
+                                queryKey: ["cart"]
+                            }), 0 === t.totalProducts && r(h.z.createInitialSession())
+                        }
+                    })
+                }
+        }
+    }
+]);
